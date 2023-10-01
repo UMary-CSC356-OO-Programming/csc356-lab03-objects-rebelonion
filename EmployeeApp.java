@@ -1,23 +1,79 @@
 import java.util.Scanner;
 
-class Employee
-{
-	/* Task 3B: Add instance variables */
-  
-   
-	/* Task 3C: Add three constructors */
-   
-   
-	/* Task 3D: Add set (mutator) and get (accessor) meethods
+class Employee {
+	// Task 3B: Add instance variables
+	private String lastName;
+	private String firstName;
+	private int employeeId;
+	private double salary;
 
-   
-	/* Task 3F: Add toString method */
-   
-   
-	/* Task 3G: Add equals method */
-   
+	// Task 3C: Add three constructors
+	public Employee() {
+		this.lastName = "";
+		this.firstName = "";
+		this.employeeId = 0;
+		this.salary = 0.0;
+	}
+
+	public Employee(String lastName, String firstName) {
+		this.lastName = lastName;
+		this.firstName = firstName;
+		this.employeeId = 0;
+		this.salary = 0.0;
+	}
+
+	public Employee(String lastName, String firstName, int employeeId, double salary) {
+		this.lastName = lastName;
+		this.firstName = firstName;
+		this.employeeId = employeeId;
+		this.salary = salary;
+	}
+
+	// Task 3D: Add set (mutator) and get (accessor) methods
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
+	}
+
+	public int getEmployeeId() {
+		return employeeId;
+	}
+
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+
+	public double getSalary() {
+		return salary;
+	}
+
+	// Task 3F: Add toString method
+	@Override
+	public String toString() {
+		return "Employee [lastName=" + lastName + ", firstName=" + firstName + ", employeeId=" + employeeId
+				+ ", salary=" + salary + "]";
+	}
+
+	// Task 3G: Add equals method
+	public boolean equals(String lastName) {
+		return this.lastName.equalsIgnoreCase(lastName);
+	}
 }
-
 
 public class EmployeeApp 
 {
@@ -60,8 +116,23 @@ public class EmployeeApp
                 
 						// Task 3E: Prompt for user information and set the object 
 						// parameters via the mutator methods
+						System.out.print("Enter Last Name: ");
+						String lastName = keyboard.nextLine();
+						employees[empCount].setLastName(lastName);
 
-   
+						System.out.print("Enter First Name: ");
+						String firstName = keyboard.nextLine();
+						employees[empCount].setFirstName(firstName);
+
+						System.out.print("Enter Employee ID: ");
+						int employeeId = keyboard.nextInt();
+						employees[empCount].setEmployeeId(employeeId);
+
+						System.out.print("Enter Salary: ");
+						double salary = keyboard.nextDouble();
+						employees[empCount].setSalary(salary);
+
+
 						empCount++;
 					}
 					keyboard.nextLine();
